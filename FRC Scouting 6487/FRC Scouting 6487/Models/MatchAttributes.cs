@@ -8,12 +8,12 @@ namespace FRC_Scouting_6487.Models
     {
         public enum Strategy
         {
-            Defense = 0, Scoring = 1, Combine = 2, Wandering = 3
+            Wandering = 0, Scoring = 1, Defense = 2, Combine = 3
         }
 
         public enum ClimbType
         {
-            Low = 0, Medium = 1, High = 2, None = 3
+            None = 0, Climb1 = 1, Climb2 = 2, Climb3 = 3
         }
     }
 }

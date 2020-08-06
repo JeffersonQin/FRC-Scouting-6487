@@ -5,8 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FRC_Scouting_6487.Views.AboutPage"
-             Title="About"
-             BackgroundColor="White">
+             Title="About">
     
     
     <ContentPage.Resources>

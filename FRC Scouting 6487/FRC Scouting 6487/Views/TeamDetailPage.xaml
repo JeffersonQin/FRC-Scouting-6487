@@ -6,10 +6,155 @@
              mc:Ignorable="d"
              x:Class="FRC_Scouting_6487.Views.TeamDetailPage">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label FontSize="28" 
+                       FontAttributes="Bold" 
+                       Margin="20, 10, 20, 0" 
+                       Text="Team Name"></Label>
+                <Entry x:Name="TeamNameEntry" 
+                       HeightRequest="40" 
+                       Placeholder="Enter Team Name" 
+                       Margin="20, 10, 20, 0" 
+                       Visual="Material" 
+                       IsTextPredictionEnabled="False" 
+                       IsSpellCheckEnabled="False"
+                       Text="{Binding TeamName}"></Entry>
+                <Label FontSize="28" 
+                       FontAttributes="Bold" 
+                       Margin="20, 10, 20, 0" 
+                       Text="Country"></Label>
+                <Entry x:Name="TeamCountryEntry" 
+                       HeightRequest="40" 
+                       Placeholder="Enter Team Country" 
+                       Margin="20, 10, 20, 0" 
+                       Visual="Material" 
+                       IsTextPredictionEnabled="False" 
+                       IsSpellCheckEnabled="False"
+                       Text="{Binding Country}"></Entry>
+                <Label FontSize="28" 
+                       FontAttributes="Bold" 
+                       Margin="20, 10, 20, 0" 
+                       Text="Robot"></Label>
+                <StackLayout FlowDirection="LeftToRight" 
+                             Orientation="Horizontal" 
+                             Margin="20, 5, 20, 0">
+                    <Label FontSize="20"
+                           FontAttributes="Bold"
+                           Text="Chassis" 
+                           VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Picker Visual="Material" 
+                            FontSize="20"
+                            x:Name="ChassisPicker"
+                            WidthRequest="200" 
+                            VerticalOptions="CenterAndExpand"
+                            HorizontalOptions="EndAndExpand"
+                            SelectedIndex="{Binding RobotChassis}">
+                    </Picker>
+                </StackLayout>
+                <StackLayout FlowDirection="LeftToRight" 
+                             Orientation="Horizontal" 
+                             Margin="20, 5, 20, 0">
+                    <Label FontSize="20"
+                           FontAttributes="Bold"
+                           Text="Mass (kg)" 
+                           VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Entry FontSize="20"
+                           VerticalOptions="CenterAndExpand"
+                           HorizontalOptions="FillAndExpand"
+                           Keyboard="Numeric"
+                           x:Name="RobotMassEntry"
+                           HorizontalTextAlignment="End"
+                           Text="{Binding RobotMass}">
+                    </Entry>
+                </StackLayout>
+                <StackLayout FlowDirection="LeftToRight" 
+                             Orientation="Horizontal" 
+                             Margin="20, 5, 20, 0">
+                    <Label FontSize="20"
+                           FontAttributes="Bold"
+                           Text="Passive Liftable" 
+                           VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Switch VerticalOptions="CenterAndExpand" 
+                            x:Name="PassiveLiftSwitch"
+                            HorizontalOptions="EndAndExpand"
+                            IsToggled="{Binding IsPassiveLiftable}">
+                    </Switch>
+                </StackLayout>
+                <StackLayout FlowDirection="LeftToRight" 
+                             Orientation="Horizontal" 
+                             Margin="20, 5, 20, 0">
+                    <Label FontSize="20"
+                           FontAttributes="Bold"
+                           Text="Active Liftable" 
+                           VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Switch x:Name="ActiveLiftSwitch"
+                            VerticalOptions="CenterAndExpand" 
+                            HorizontalOptions="EndAndExpand"
+                            IsToggled="{Binding IsActiveLiftable}">
+                    </Switch>
+                </StackLayout>
+                <StackLayout FlowDirection="LeftToRight" 
+                             Orientation="Horizontal" 
+                             Margin="20, 5, 20, 0">
+                    <Label FontSize="20"
+                           FontAttributes="Bold"
+                           Text="Defensable" 
+                           VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Switch x:Name="DefenseSwitch"
+                            VerticalOptions="CenterAndExpand" 
+                            HorizontalOptions="EndAndExpand"
+                            IsToggled="{Binding IsDefensive}">
+                    </Switch>
+                </StackLayout>
+                <StackLayout FlowDirection="LeftToRight" 
+                             Orientation="Horizontal" 
+                             Margin="20, 5, 20, 0">
+                    <Label FontSize="20"
+                           FontAttributes="Bold"
+                           Text="Climb" 
+                           VerticalOptions="CenterAndExpand">
+                    </Label>
+                    <Picker Visual="Material" 
+                            FontSize="20"
+                            WidthRequest="200" 
+                            VerticalOptions="CenterAndExpand"
+                            x:Name="ClimbPicker"
+                            HorizontalOptions="EndAndExpand"
+                            SelectedIndex="{Binding RobotClimbType}">
+                    </Picker>
+                </StackLayout>
+                <Grid Margin="0, 10, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Delete" 
+                            BackgroundColor="Red" 
+                            TextColor="White" 
+                            Visual="Material" 
+                            Grid.Column="0" 
+                            Margin="20,0"
+                            x:Name="DeleteButton"
+                            Clicked="DeleteButton_Clicked"/>
+                    <Button Text="Save" 
+                            BackgroundColor="{StaticResource NavigationPrimary}" 
+                            TextColor="White" 
+                            Visual="Material" 
+                            Grid.Column="1" 
+                            Margin="20,0"
+                            x:Name="SaveButton"
+                            Clicked="SaveButton_Clicked"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FRC_Scouting_6487.Views.TeamsPage"
-             Title="Teams" BackgroundColor="White">
+             Title="Teams">
 
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" x:Name="AddTeamButton" Clicked="AddTeamButton_Clicked">
@@ -19,35 +19,37 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
-                <SearchBar x:Name="TeamSearchBar" 
+        <StackLayout>
+            <SearchBar x:Name="TeamSearchBar" 
                     SearchButtonPressed="TeamSearchBar_SearchButtonPressed" 
                     Placeholder="Search Team"
                     Margin="20, 20, 20, 20">
-                </SearchBar>
-                <ListView x:Name="TeamListView" RowHeight="60">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="1*"/>
-                                        <ColumnDefinition Width="5*"/>
-                                    </Grid.ColumnDefinitions>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="1.2*"/>
-                                        <RowDefinition Height="1*"/>
-                                    </Grid.RowDefinitions>
-                                    <Label Grid.Column="0" Grid.RowSpan="2" Text="{Binding TeamNumber}" FontSize="Body" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Center"/>
-                                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding TeamName}" FontSize="18" TextColor="Black" VerticalOptions="Center" HorizontalOptions="Start"/>
-                                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding Country}" FontSize="16" TextColor="Gray" VerticalOptions="Center" HorizontalOptions="Start"/>
-                                </Grid>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
-        </ScrollView>
+            </SearchBar>
+            <ListView x:Name="TeamListView" 
+                          RowHeight="60" 
+                          Refreshing="TeamListViewRefreshHandler"
+                          IsPullToRefreshEnabled="True"
+                          ItemSelected="TeamListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="1*"/>
+                                    <ColumnDefinition Width="5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="1.2*"/>
+                                    <RowDefinition Height="1*"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Grid.RowSpan="2" Text="{Binding TeamNumber}" FontSize="Body" VerticalOptions="Center" HorizontalOptions="Center"/>
+                                <Label Grid.Column="1" Grid.Row="0" Text="{Binding TeamName}" FontSize="18" VerticalOptions="Center" HorizontalOptions="Start"/>
+                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Country}" FontSize="16" TextColor="Gray" VerticalOptions="Center" HorizontalOptions="Start"/>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

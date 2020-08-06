@@ -8,12 +8,12 @@ namespace FRC_Scouting_6487.Models
     {
         public enum Chassis
         {
-            Tank = 0, Swerve = 1, Macanum = 2, Other = 3
+            Other = 0, Chassis1 = 1, Chassis2 = 2, Chassis3 = 3
         }
 
         public enum ClimbType
         {
-            Low = 0, Medium = 1, High = 2, None = 3
+            None = 0, Climb1 = 1, Climb2 = 2, Climb3 = 3
         }
 
         public class InTakeFunctions

@@ -24,9 +24,9 @@ namespace FRC_Scouting_6487.Models
             get { return this.teamRobot; }
             set
             {
+                this.teamRobot = value;
                 if (setFlag) { setFlag = false; return; }
                 setFlag = true;
-                this.teamRobot = value;
                 this.TeamRobotData = JSONHelper.ObjectToJSON(value);
             }
         }
@@ -39,9 +39,9 @@ namespace FRC_Scouting_6487.Models
             get { return this.matches; }
             set
             {
+                this.matches = value;
                 if (setFlag) { setFlag = false; return; }
                 setFlag = true;
-                this.matches = value;
                 this.MatchesData = JSONHelper.ObjectToJSON(value);
             }
         }
@@ -53,9 +53,9 @@ namespace FRC_Scouting_6487.Models
             get { return this.teamRobotData; }
             set
             {
+                this.teamRobotData = value;
                 if (setFlag) { setFlag = false; return; }
                 setFlag = true;
-                this.teamRobotData = value;
                 this.TeamRobot = JSONHelper.JSONToObject<Robot>(value);
             }
         }
@@ -67,9 +67,9 @@ namespace FRC_Scouting_6487.Models
             get { return this.matchesData; }
             set
             {
+                this.matchesData = value;
                 if (setFlag) { setFlag = false; return; }
                 setFlag = true;
-                this.matchesData = value;
                 this.Matches = JSONHelper.JSONToObject<List<Match>>(value);
             }
         }

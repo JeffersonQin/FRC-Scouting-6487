@@ -5,11 +5,12 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:views="clr-namespace:FRC_Scouting_6487.Views"
-            x:Class="FRC_Scouting_6487.Views.MainPage"
-            BackgroundColor="White">
+            x:Class="FRC_Scouting_6487.Views.MainPage">
 
     <TabbedPage.Children>
-        <NavigationPage Title="Teams">
+        <NavigationPage Title="Teams" 
+                        xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                        ios:NavigationPage.PrefersLargeTitles="true">
             <x:Arguments>
                 <views:TeamsPage />
             </x:Arguments>
@@ -19,8 +20,10 @@
                 </OnPlatform>
             </NavigationPage.Icon>
         </NavigationPage>
-        
-        <NavigationPage Title="About">
+
+        <NavigationPage Title="About"
+                        xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core" 
+                        ios:NavigationPage.PrefersLargeTitles="true">
             <x:Arguments>
                 <views:AboutPage />
             </x:Arguments>

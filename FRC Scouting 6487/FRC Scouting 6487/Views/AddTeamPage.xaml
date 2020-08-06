@@ -4,12 +4,77 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="FRC_Scouting_6487.Views.AddTeamPage">
+             x:Class="FRC_Scouting_6487.Views.AddTeamPage"
+             Title="Add New Team" 
+             Visual="Material">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <ScrollView Visual="Material">
+            <StackLayout>
+                <StackLayout FlowDirection="LeftToRight" Margin="20, 20, 20, 0" Orientation="Horizontal">
+                    <Label FontSize="28" FontAttributes="Bold" Text="#Team"></Label>
+                    <Label FontSize="28" FontAttributes="Bold" TextColor="Red">
+                        *
+                    </Label>
+                </StackLayout>
+                <Entry x:Name="TeamNumberEntry" 
+                       Keyboard="Numeric" 
+                       HeightRequest="40" 
+                       Placeholder="Enter Team No. e.g. 6487" 
+                       Margin="20, 10, 20, 0" 
+                       Visual="Material" 
+                       IsTextPredictionEnabled="False" 
+                       IsSpellCheckEnabled="False"
+                       Text="{Binding TeamNumber}"></Entry>
+                <Label FontSize="28" 
+                       FontAttributes="Bold" 
+                       Margin="20, 10, 20, 0" 
+                       Text="Team Name"></Label>
+                <Entry x:Name="TeamNameEntry" 
+                       HeightRequest="40" 
+                       Placeholder="Enter Team Name" 
+                       Margin="20, 10, 20, 0" 
+                       Visual="Material" 
+                       IsTextPredictionEnabled="False" 
+                       IsSpellCheckEnabled="False"
+                       Text="{Binding TeamName}"></Entry>
+                <Label FontSize="28" 
+                       FontAttributes="Bold" 
+                       Margin="20, 10, 20, 0" 
+                       Text="Country"></Label>
+                <Entry x:Name="TeamCountryEntry" 
+                       HeightRequest="40" 
+                       Placeholder="Enter Team Country" 
+                       Margin="20, 10, 20, 0" 
+                       Visual="Material" 
+                       IsTextPredictionEnabled="False" 
+                       IsSpellCheckEnabled="False"
+                       Text="{Binding Country}"></Entry>
+                <Grid Margin="0, 10, 0, 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Delete" 
+                            BackgroundColor="Red" 
+                            TextColor="White" 
+                            Visual="Material" 
+                            Grid.Column="0" 
+                            Margin="20,0"
+                            x:Name="DeleteButton"
+                            Clicked="DeleteButton_Clicked"/>
+                    <Button Text="Save" 
+                            BackgroundColor="{StaticResource NavigationPrimary}" 
+                            TextColor="White" 
+                            Visual="Material" 
+                            Grid.Column="1" 
+                            Margin="20,0"
+                            x:Name="SaveButton"
+                            Clicked="SaveButton_Clicked"/>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Windows.Input;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -15,9 +15,17 @@ namespace FRC_Scouting_6487.Views
 	[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TeamsPage : ContentPage
     {
+
         public TeamsPage()
         {
             InitializeComponent();
+        }
+
+        private async void TeamListViewRefreshHandler(object sender, EventArgs e)
+        {
+            // TODO: Server, Refresh Data
+            await this.DisplayAlert("Refresh Success / Fail", "....", "OK");
+            this.TeamListView.EndRefresh();
         }
 
         protected override async void OnAppearing()
@@ -33,46 +41,41 @@ namespace FRC_Scouting_6487.Views
 
         private async void AddTeamButton_Clicked(object sender, EventArgs e)
         {
-            var team = new Team()
+            await Navigation.PushModalAsync(new AddTeamPage()
             {
-                TeamNumber = 6487,
-                TeamName = "ClockworkNights",
-                Country = "China",
-                TeamRobot = new Robot(),
-                Matches = new List<Match>()
+                BindingContext = new Team()
+            }, animated: true);
+        }
+
+        private async void TeamListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            if (e.SelectedItem != null)
+            {
+                // Debug
+                //await this.DisplayAlert("Here", "Here", "Here");
+                Team t = e.SelectedItem as Team;
+                //await this.DisplayAlert(t.TeamNumber + "", t.TeamName, t.Country);
+                TeamRobot tr = new TeamRobot()
                 {
-                    new Match()
-                }
-            };
-            await App.Database.SaveTeamAsync(team, true);
-            //Match match1 = new Match()
-            //{
-            //    MatchIndex = 1,
-            //    MatchStrategy = MatchAttributes.Strategy.Combine
-            //};
-            //Match match2 = new Match()
-            //{
-            //    MatchIndex = 2,
-            //    MatchStrategy = MatchAttributes.Strategy.Defense
-            //};
-            //Match match3 = new Match()
-            //{
-            //    MatchIndex = 3,
-            //    MatchStrategy = MatchAttributes.Strategy.Scoring
-            //};
-            //Match match4 = new Match()
-            //{
-            //    MatchIndex = 4,
-            //    MatchStrategy = MatchAttributes.Strategy.Wandering
-            //};
-            //List<Match> matches = new List<Match>
-            //{
-            //    match1,
-            //    match2,
-            //    match3,
-            //    match4
-            //};
-            //this.DisplayAlert("title", JSONHelper.ObjectToJSON(matches), "cancel");
+                    TeamNumber = t.TeamNumber,
+                    TeamName = t.TeamName,
+                    Country = t.Country,
+                    RobotChassis = (int)t.TeamRobot.RobotChassis,
+                    RobotIntake = t.TeamRobot.RobotIntake,
+                    RobotScoringFunctions = t.TeamRobot.RobotScoringFunctions,
+                    RobotMass = t.TeamRobot.RobotMass,
+                    IsPassiveLiftable = t.TeamRobot.IsPassiveLiftable,
+                    IsActiveLiftable = t.TeamRobot.IsActiveLiftable,
+                    IsDefensive = t.TeamRobot.IsDefensive,
+                    RobotClimbType = (int)t.TeamRobot.RobotClimbType,
+                    Matches = t.Matches
+                };
+                //await this.DisplayAlert(t.TeamNumber + "", t.TeamName, t.Country);
+                await Navigation.PushAsync(new TeamDetailPage()
+                {
+                    BindingContext = tr
+                }, animated: true);
+            }
         }
     }
 }

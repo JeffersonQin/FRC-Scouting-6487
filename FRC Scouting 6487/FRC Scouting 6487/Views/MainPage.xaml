@@ -5,7 +5,8 @@
             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
             mc:Ignorable="d"
             xmlns:views="clr-namespace:FRC_Scouting_6487.Views"
-            x:Class="FRC_Scouting_6487.Views.MainPage">
+            x:Class="FRC_Scouting_6487.Views.MainPage"
+            BackgroundColor="White">
 
     <TabbedPage.Children>
         <NavigationPage Title="Teams">

@@ -14,6 +14,7 @@
     <PackageReference Include="LiveXAML" Version="2.1.73" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="System.Net.Sockets" Version="4.3.0" />
     <PackageReference Include="Xamarin.Forms" Version="4.7.0.1239" />  
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
   </ItemGroup>

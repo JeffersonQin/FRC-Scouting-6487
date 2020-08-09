@@ -64,5 +64,18 @@ namespace FRC_Scouting_6487.Lib
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("]: " + message);
         }
+
+        public static void LogException(Exception e, string message)
+        {
+            ConsoleLog.Error("**************************************");
+            ConsoleLog.Error(message);
+            ConsoleLog.Error("Detailed Information: ");
+            ConsoleLog.Error("Error Message: " + e.Message);
+            ConsoleLog.Error("Error Stack Trace: \n" + e.StackTrace);
+            ConsoleLog.Error("Error Source Method: " + e.Source);
+            ConsoleLog.Error("Error Code: " + e.HResult);
+            ConsoleLog.Error("Error Help Link: " + e.HelpLink);
+            ConsoleLog.Error("**************************************");
+        }
     }
 }

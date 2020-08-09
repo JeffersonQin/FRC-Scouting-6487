@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\FRC Scouting 6487\FRC Scouting 6487\FRC Scouting 6487.csproj" />
+  </ItemGroup>
+
 </Project>

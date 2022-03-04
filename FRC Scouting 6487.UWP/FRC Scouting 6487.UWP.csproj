@@ -157,7 +157,7 @@
       <Version>1.5.3.2</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.7.0.1239</Version>
+      <Version>5.0.0.2337+884-sha.8f765bd87-azdo.5638139</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
